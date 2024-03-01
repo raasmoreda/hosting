@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="c"></div>
+    <script>
+        //Butt88
+        let caja=document.getElementById("c");
+        let filas;
+
+       do{ //para asegurar un número impar de filas
+        filas=parseInt(prompt('Introduce filas del rombo. Tiene que ser número impar'));
+       }while(filas%2==0)
+
+        let ini_iz=Math.round(filas/2);
+        let iz=ini_iz;
+        let espacio="";
+        let asterisco="*";
+        let blanco="";
+        let blancomedio="";
+        
+        console.log(iz)
+        blanco="&nbsp&nbsp";
+        console.log(iz+blanco+iz);
+        
+        for (let i=0;i<ini_iz;i++){
+           if (i==0){
+            espacio=blanco.repeat(ini_iz); 
+            caja.innerHTML=caja.innerHTML+espacio+asterisco+"<br>";
+           }else { //creciente
+            iz=iz-1;
+            espacio=blanco.repeat(iz);
+            blancomedio=blanco.repeat(2*i-1);
+            caja.innerHTML=caja.innerHTML+espacio+asterisco+blancomedio+asterisco+"<br>";
+           }
+        }
+        //console.log(`ìni_iz`+ini_iz);
+        //console.log(`z`+iz);
+        iz=iz+1;
+        for (let i=ini_iz-2;i>0;i--){ //creciente
+            espacio=blanco.repeat(iz);
+            blancomedio=blanco.repeat(2*i-1);
+            caja.innerHTML=caja.innerHTML+espacio+asterisco+blancomedio+asterisco+"<br>";
+            iz=iz+1;
+           }
+            espacio=blanco.repeat(iz); //dibujo el último asterisco
+            caja.innerHTML=caja.innerHTML+espacio+asterisco+"<br>";     
+    </script>
+</body>
+</html>
